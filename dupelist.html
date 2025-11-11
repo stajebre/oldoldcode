@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JB Calculator - Dupe list</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="jbcalculatortitle.png">
+    <meta name="google-adsense-account" content="ca-pub-2421682457127593">
+</head>
+<body>
+    <div class="mode"> 
+        <div class="imigelogo2"></div>
+      <div class="card">
+        <h6 onclick="changemode()" id="change" class="navs">White mode</h6>
+        <h6 onclick="valuepage()"  id="vallist"><span onclick="valuepage()" class="navs" id="vallist">Value List</span></h6>
+        <h6 onclick="calculator()" id="calculator"><span onclick="calculator()" class="navs" id="calculator">Calculator</span></h6>
+        <h6 span onclick="homepage()" id="vallist"><span onclick="homepage()"class="navs" id="vallist">Home Page</span></h6>
+    </div>
+      </div>
+    <!-- Add a search bar -->
+    <div class="container">
+        <input required="" type="text" name="text" class="input" oninput="searchDupe()" id="serchBar">
+        <label class="label">Search duped items</label>
+      </div>
+    
+    <!-- Dynamic dupe list -->
+    <div id="dupeList" style="  margin-left: 40%;"></div>
+
+    <script>
+
+function homepage() {
+            window.location.href = 'https://jbcalculator.vercel.app/';
+        }
+        // Dupe list data
+        const dupeList = {
+            "Arachnid": ["F4NTUS", "BLACKLANTERNX", "METALOWE", "MIGUELP2P3", "TURTLELY_1001"],
+            "Brulee": ["LEARNARDO12", "MIKIFAJNY", "JOHN_MICHAELRAY", "Leandro1234675"],
+            "Beignet": ["CARLOAGB","STARBOYYTYEET","USESTARCODE...","ZIXGGGG","IMPERFECTST...","01_KENJI","Hazed_Mirage","akeem80"],
+            "Molten M12": ["Ephy2020","DWS_GAMER","4EVERPEPPER","YEEZUSDISCIPLE","RENATO20082000"],
+            "Icebreaker": ["CARNOTY123","FWHYME","CRONOS_IA","JAVIERRV98ER","ASIANDUUUDE","Detekivroura"],
+            "Parisian": ["CHRONO_NAVI...","WELOVEVEL","zzbiox"],
+            "Jackrabbit💀": ["Bartix_1"],
+            "Torpedo": ["Stiqkie","DAT_BOYDK / DAT_BOYK (alt)","IONEFUNDS","nickeldime88","GHOTS_B","VAL7JAR","LazzersBF","7hree","Roguepoke","BENDAWARRIOR","BROCOOLKID675","VUXSTEALSBR...","VVSCARTIE","EnergizerMC","THEJOKERHUBROO","CEOCHANGWOW","DGQUICK55","OSASERBOY_9","IDCV128MA","SAVAGEREPTI...","CREEPZ1424JLOT","BIGBOSS_LAIRON","Eselkuh","KILLER67142","Dolphon1011","BXEVIL","Imlittledan","C2SHINGS","Eliaspro123655","DEDENNE1234...","Distractedglobe","GATO15A","GREENAVOCADORB",
+    "HUJIPR123",
+    "IISHARTRUCENII",
+    "JETSTAR261",
+    "SEEDNAME101",
+    "K0QXH",
+    "BOMBONEBR",
+    "NINJASTRIKE...",
+    "DANOSTAB",
+    "SEANTHESUPE...",
+    "PANTUTAJ100",
+    "S12311061",
+    "ATKDALTON",
+    "360XMAN101",
+    "Weetmanbro",
+    "KOKO111_AQ",
+    "NAYS7373",
+    "Kritt3R_Cake",
+    "Phindr 🥲",
+    "VOLOSTS",
+    "UZAIR1979AL...",
+    "TheJokerHUE...",
+    "Pantutaj100",
+    "SLINT_ISAIAH",
+    "TAXISUSADOS",
+    "STUOMAR",
+    "ROBOTIME123...",
+    "SLIMEGUY52",
+    "popmeples",
+    "Theprakergangster",
+    "Theprogamerz2016",
+    "Szymondadc12",
+    "Thejokerhuebr00",
+    "Thelilblurry",
+    "OLIWIER1304",
+    "P9ndaGamer",
+    "Nyoom",
+    "M7MD076",
+    "KILERHDD",
+    "JOHNFIRE197",
+    "Mariongwapings",
+    "Killerinstincts249",
+    "King_123786",
+    "KHALO1",
+    "JUANES6235",
+    "Joyisnotajoy",
+    "HTILTF",
+    "DALLCARTHER",
+    "9TRAPSZ",
+    "AMAZINGMAN1...",
+    "BadFiver",
+    "NAYS1313",
+    "JAIZEE14",
+    "BAWAL456",
+    "TheJokerHUE...",
+    "FIRERAPIDGA...",
+    "Jetstar361",
+    "YOUFAT323",
+    "2007ANTON228",
+    "xxdark_aidenxx",
+    "Fergto7",
+    "VAL7JAR",
+    "kiiixua",
+    "TUTUNEAANAM...",
+    "Zlprogaming9527",
+    "BYXEVIL",
+    "CERTIFIEDLUX",
+    "Firerapidgaming",
+    "LLFOLY",
+    "MELVINPO",
+    "AEROILEER",
+    "DISTRACTEDG...",
+    "EXPLOTLESS",
+    "Guest666tuan",
+    "LIi3f",
+    "FPROS_DIAMOND",
+    "PAPANCLA4",
+    "Seanthesuperboy123",
+    "Scymondadc12",
+    "Savagereptile11353",
+    "KATANG789",
+    "HISHAMISCOOL",
+    "SALEH123XS",
+    "LCNG111",
+    "JEYYDELCAR13",
+    "Junmarkdiayko",
+    "Mynameisiller",
+    "Mega_Arceus09",
+    "Robotime123453214",
+    "IZMFN",
+    "MILLIONER3109",
+    "Ninjastriker576",
+    "JUANES6235",
+    "ARES11201",
+    "RIWEHD",
+    "SPAYE",
+    "Tuprounico",
+    "Tutuneaanamaria",
+    "YOHAHANO",
+    "Typeclear",
+    "Uzair1979Altaccount2",
+    "maximrozh",
+    "KILLERINSTI...",
+    "CARLOS43PRO",
+    "PEW345",
+    "NEYDER123PE",
+    "AIDAMEN_KING",
+    "TR1PPYYSAM",
+    "BLACKPANTHE...",
+    "PETRINI08",
+    "ALIONG2012",
+    "AMAZINGMAN10000",
+    "BLACKPANTHER10610",
+    "BLASQUEZBRICK143",
+    "Caezon12345",
+    "Coca773",
+    "Craftycubers",
+    "Yonatanplayz",
+    "Dedenne1234561890"
+],
+
+"Thrusters": [
+    "JACKIEISTB",
+    "HUNTERFREEV…",
+    "TIDMAI",
+    "THEEPICMINEBOY",
+    "BB0307",
+    "VAPORISH_RA…"
+],
+
+"Celsior": [
+    "JAGKASDADO",
+    "HARMONICDUST"
+],
+
+"Beam Hybrid": [
+    "Renanloco3",
+    "omg_theboss",
+    "JNICKLOST",
+    "herovsng123",
+    "BRIANBOY_1",
+    "R_XER",
+    "JAGUAR333777",
+    "KINGBIKTOAD",
+    "brokhaze",
+    "RICARDO_YT32",
+    "KHAMANIETHE...",
+    "XPANDABEN",
+    "CAYLGAMINH",
+    "IIDARK_V1BEZ",
+    "PANCAKE7777",
+    "AAALAAAPAAAN",
+    "KOKOSNUSS_TV",
+    "DESTROYERAM1",
+    "USESTARCODE...",
+    "EASONEDEN200",
+    "LazzersBF",
+    "kingjinghefo",
+    "HUNTERFREEV...",
+    "HAZEWENTMISTY",
+    "Natechenheng13",
+    "IDVV128MA",
+    "PRINCE_OFFICIELL",
+    "RNSN007",
+    "BIGBOSS_LAIRON",
+    "Comrade_Sniper",
+    "EKANSSTONKS",
+    "Rabiamuhammetaliatse",
+    "MOAHMMED119",
+    "UN3ZHI",
+    "Hunterfreevoelk"
+],
+
+"Tiny Toy": [
+    "FIRE_OGNIK"
+],
+
+"Torero": [
+    "GEOARX"
+],
+
+"JB8": [
+    "HEFFANATOR246"
+],
+
+"Bandit": [
+    "LEGENDYT141",
+    "ZAPH984"
+],
+
+"Banana Car": [
+    "DSDPDSDPDSFS"
+],
+
+"Proto-8": [
+    "zzbiox",
+    "LEGENDYT141",
+    "OUTTRX",
+    "ZZBIOX"
+],
+
+"Snake": [
+    "ZAPH984"
+],
+
+"Spinners": [
+    "Gokkiz72",
+    "CED_1",
+    "LOADD",
+    "RAYO_MYT",
+    "CYNIXX_YT",
+    "KINGDUDE13345",
+    "WERKAKER",
+    "BLUEFALCON564",
+    "Umsimplex",
+    "NICOWELSH10",
+    "SAURAV88",
+    "Zatrastic",
+    "TALAVOK",
+    "Dakota232000",
+    "DAZZLINGCHASEC",
+    "Hazewentmisty",
+    "LIBEXD12",
+    "JOEYPIG2007"
+],
+
+"RTX": [
+    "ONEBITOFHOPE",
+    "777NERF"
+],
+
+"Checkers": [
+    "Angelitoreyy",
+    "SKYWALKERSERIOUS",
+    "DASHER3992",
+    "YT_SUPERPEKKA336",
+    "VERMEE"
+],
+
+"Void": [
+    "JHANCA328_XD",
+    "LC2CPGE",
+    "HAZEWENTMISTY",
+    "THEDUMBLING"
+],
+
+"Hypno": [
+    "Kyniuxd"
+],
+
+"Hyperdiamond level 5": [
+    "COSMOLYNXX",
+    "FIUTZWARSZAWY",
+    "BUSHWHACKER420",
+    "Muhammedoffical181",
+    "XM_ARFA",
+    "1645323631",
+    "MINECRAFTJAILB",
+    "STALICITES",
+    "MILOBROTHERW",
+    "D3ADITE",
+    "3333QQ11",
+    "chz_xl",
+    "Ihackjailbreake",
+    "Kodkarma",
+    "PARKIS028",
+    "ARTUR709998",
+    "nayrode34",
+    "YEE1597534682",
+    "JEPARCHER",
+    "KILLERBEANTWE",
+    "Panduro4452Klpro",
+    "L_IRO",
+    "NOSBORO",
+    "Iamnotasweatyplayer",
+    "jushua12325",
+    "YT_ELVIS",
+    "DA_FIGO",
+    "WIKTORSON321",
+    "Eyasfromdou...",
+    "CLOVIS102012",
+    "LazzersBF",
+    "CED333345",
+    "Parkis028",
+    "DA_FIGO",
+    "JUSHUA12325",
+    "ROOTBOOT",
+    "DEV_DUCANH"
+],
+
+"Hyperdiamond level 4": [
+    "NAYRODE34",
+    "PARKIS028",
+    "RENZON220PE",
+    "SENIA525",
+    "1234SOMOS"
+],
+
+"Hyperred level 5": [
+    "Fiery_Diamondy",
+    "TREYLORBXRG1",
+    "BOCDAN1",
+    "ZLEPILP3",
+    "ATONDAN0096",
+    "ANDREWGHKD",
+    "BLEHBLEHBLE...",
+    "IONCARNOMO",
+    "JOOMVP",
+    "ALIVE_CHAN",
+    "7orde",
+    "BREHAREUK",
+    "OFFICIALCELOSA",
+    "PHONENINATOR",
+    "IMMORTAL_RA...",
+    "MAKS0072010",
+    "Eyasfromdou...",
+    "ZAKIOR02",
+    "QEVN",
+    "MERVYN06",
+    "LEONAFO444",
+    "ijustdidursis",
+    "7Ordaan",
+    "hazewentmisty",
+    "IDCV126",
+    "XQEVN",
+    "LJL105583",
+    "Loll_Red",
+    "ODELL_GIANTS",
+    "MICHAELANG360S",
+    "CRUNCHA_BUNCH",
+    "Hatsunemiku_39S",
+    "FADEETWO",
+    "466607778",
+    "asimoduper",
+    "262562412",
+    "JESUSTTTX",
+    "BOSE_CLEAN",
+    "ANDREWGHKD"
+],
+
+"Hyperred level 4": [
+    "NINJAFLYER88",
+    "EVTS87AIT",
+    "JOINDSCGGJB...",
+    "2MORROWPRO",
+    "FADEEFOUR"
+],
+
+"Hyperpurple level 5": [
+    "Anthonyff213",
+    "XDLEGENDARYGAMERXD",
+    "HTHEVALOR124",
+    "7ORDE",
+    "NEYMAR17XPRO",
+    "KODKARMA",
+    "DILLYDABOSS1",
+    "XM_ARFA",
+    "C_HNY",
+    "NORG_999",
+    "MXST_XR",
+    "Silvervampire1",
+    "ANGE1PRO587",
+    "Antoniocorsochevende",
+    "DIEFOROCKK",
+    "REAL_RAZERGX",
+    "Linkedaura",
+    "Helicopter30062007",
+    "TTVSAVAGE2821",
+    "WolfcraftHD1",
+    "ELIEYOURENEMY",
+    "LAKIOMISSYOU",
+    "KANEX_KGM",
+    "DANNYDOO2007",
+    "Eyasfromdou...",
+    "THELORD3243",
+    "KARTELRBX",
+    "XGSHADE",
+],
+"Hyperpurple level 4":[
+    "MVZ963",
+    "IMDEPOOO",
+    "SYSUHRG",
+],
+"Hypergreen level 5":[
+"DarkPro0999",
+"REMAUST",
+"BREHAREUK",
+"PROPIAYERSA",
+"Z3KYO",
+"1IAngieVII",
+"Alexgamer2Yt",
+"Brehareuk",
+"Cruncha_Bunch",
+"3433853187",
+"ANTIVENOM30000",
+"SAULITITO213",
+"WELOVEVEL",
+"MINECRAFTJAILB",
+"Papibylian / ITSLEO3ORRY",
+"Llfolyy",
+"kyuuwastaken",
+"HAZEWENTMLSTY",
+"Gambixgts",
+"Hackthefbi",
+"DRUMMER2006",
+"HAZEWENTMISTY",
+"brehareuk",
+"Bluxonly",
+"BOSE_CLEAN",
+"Steventlaceca",
+"Eyasfromdou",
+"ALEEXANDROO",
+"THEBLACKISW",
+"1z_vxz",
+"ITSLEO3ORRY",
+"7orde",
+"S_Alexander7"
+],
+"Hypergreen level 4":[
+    "STEVENTLACECA",
+"GambixGTS",
+"LEXGAMER2YT",
+],
+"Hyperpink level 5":[
+"MATYASKLIMAS",
+"7Ordaan",
+"S_ALEXANDER7",
+"HAKEDA7758",
+"JAILBREAKPL...",
+"BUMBLEHORNE…",
+"Zombieboy7758",
+"FLAME_KING064",
+"ILLIIILLLIL...",
+"7orde",
+"Foen1x_m4",
+"MR_DONUTREAL",
+"Foenix_m4",
+"MARCOGREY123",
+"Bigshift01",
+"VEQNXL",
+"gitgudscrubs2",
+"IMMORTAL_RA...",
+"Eyasfromdou...",
+"3955100325",
+"BIGSHIFT101",
+"AimeeMinami"
+],
+"Hyperpink level 4":[
+"GALACTICFURY7",
+"YeezusDisciple",
+"ISAK_GM",
+"IMAGINELOSI..."
+],
+"Hyperorange level 5": ["FATIMA2009CX", "TSM_DPLE0100", "Veqnxl", "JOSTHYNO967_YT", "TEODOR_AGA", "USBGOBRRR", "Josthyn0967_YT", "brehareuk", "BRIXON210", "NEZUKIHASH", "CAT_COTOFEY48", "CHARLIEB22NERD", "Zombieboy7758", "338260347", "GLEB110737", "ALEJANDRO200PR", "4sky_lift", "BARS_IK0707", "GLEB110737", "Eyasfromdou...", "LILLLLWIL", "AWFULDECISIONS"],
+"Hyperyellow level 5": ["PIXELATEDNOOB", "7ORDE", "PLANETAPE11", "KARTELRBX", "PIXELPILFERER", "CryptoWise", "MATIAS171985", "VIZIONO", "LJL105583", "TEODOR135357", "SHARK_EPIC14", "FACE3000645", "ROCKETMAN3354", "Eyasfromdou…"],
+"Hyperyellow level 4": ["CARROM01", "AUSTINGAMER325", "KZZE_3", "ZAXAPAX"],
+
+"Hyperblue level 5": ["REKANMOHAMM...", "LSTEVEN911", "VAQAAS", "ALIVE_CHAN", "Odnorando", "Nayrode34", "SUSYDEEZ", "IMMORTAL_RA...", "MAKO_REVERSE", "WHITE_BOSSMAFI", "VAQAAS", "AKA789TW", "XRIVIT", "TR1PPPLE", "julixlul", "4ID3XTREME", "Citerygoodciteryyumm", "Heetpoepie", "Freshfromtheoven62", "MINECRAFTJAILB", "7Ordaan", "5THEFOXSTAR5", "KARTELRBX", "THEMRQUACKY", "Eyasfromdou...", "7orde", "ERAHONE", "IUSUAI", "nayrode34", "ASUSSYDOODOO", "CITERYGOODC...", "ImStiti", "Mato12377", "FRESHFROMTH…"],
+
+"Hyperblue level 4": ["GHAZTGUY", "MR1TRUFFLES", "YAMAINBOI11"],
+
+"Macaron": ["COGGODBEYMA…"],
+
+"2B spoiler": ["TIGR1258"],
+
+"Shogun": ["FRSECRET"],
+
+"Aperture": ["FRSECRET"],
+
+"Power-1": ["MUHHAMED2750", "BACONFORLIF…"]
+
+
+        }
+
+        // Function to dynamically create dupe list
+        function createDupeList() {
+            const dupeListContainer = document.getElementById("dupeList")
+
+            for (const category in dupeList) {
+                const categoryItem = document.createElement("h1");
+                const categoryItem1 = document.createElement("div");
+                categoryItem1.textContent = category;
+                categoryItem1.className = "category";
+
+                const subList = document.createElement("h4");
+
+                dupeList[category].forEach(dupe => {
+                    const dupeItem = document.createElement("h4");
+                        dupeItem.textContent = dupe;
+                        subList.appendChild(dupeItem);
+                });
+
+                categoryItem1.appendChild(subList);
+                categoryItem1.appendChild(categoryItem)
+                dupeListContainer.appendChild(categoryItem1);
+            }
+        }
+
+        // Function to handle search functionality
+// Function to handle search functionality
+function searchDupe() {
+    const searchBar = document.getElementById("serchBar");
+    const dupeListContainer = document.getElementById("dupeList");
+
+    const searchTerm = searchBar.value.toLowerCase();
+
+    // Clear previous search results
+    dupeListContainer.innerHTML = "";
+
+    for (const category in dupeList) {
+        const matchingDupes = dupeList[category].filter(dupe => dupe.toLowerCase().includes(searchTerm));
+
+        if (matchingDupes.length > 0) {
+            const categoryItem = document.createElement("h1");
+            const categoryItem1 = document.createElement("div");
+            categoryItem1.textContent = category;
+            categoryItem1.className = "category";
+
+            const subList = document.createElement("h4");
+
+            matchingDupes.forEach(dupe => {
+                const dupeItem = document.createElement("h4");
+                dupeItem.textContent = dupe;
+                subList.appendChild(dupeItem);
+            });
+
+            categoryItem1.appendChild(subList);
+            categoryItem1.appendChild(categoryItem);
+            dupeListContainer.appendChild(categoryItem1);
+        }
+    }
+}
+
+
+       
+        function valuepage() {
+            window.location.href = 'https://jbcalculator.vercel.app/valuelist.html';
+        }
+
+        function calculator() {
+            window.location.href = 'https://jbcalculator.vercel.app/calculator.html';
+        }
+
+        
+        window.onload = createDupeList;
+function changemode(){
+  change = document.getElementById("change")
+  console.log("mode change")
+  if (change.innerHTML == "Dark mode") {
+    whitemode()
+    change.innerHTML = "White Mode"
+  } else {
+    darkmode()
+    change.innerHTML = "Dark mode"
+  }
+}
+function whitemode() {
+  document.body.style.backgroundColor = "#00ffea";
+}
+
+function darkmode() {
+  document.body.style.backgroundColor = "#080024";
+}
+function explain(){
+  window.location.href = 'https://jbcalculator.vercel.app/explain.html';
+}
+</script>
+</body>
+</html>
