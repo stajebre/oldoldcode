@@ -1,51 +1,17 @@
+/* 
+Hello, this is like my first big js code, made in like 2023 
+I am writing most comments today
+*/
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JB Calculator - Value list</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="jbcalculatortitle.png">
-    <meta name="google-adsense-account" content="ca-pub-2421682457127593">
-</head>
-<body>
-  <div class="mode"> 
-    <div class="imigelogo2"></div>
-  <div class="card">
-    <h6 onclick="changemode()" id="change" class="navs">White mode</h6>
-    <h6 onclick="dupepage()"  id="vallist"><span onclick="dupepage()" class="navs" id="vallist">Dupe List</span></h6>
-    <h6 onclick="calculator()" id="calculator"><span onclick="calculator()" class="navs" id="calculator">Calculator</span></h6>
-    <h6 onclick="homepage()" id="vallist"><span onclick="homepage()"class="navs" id="vallist">Home Page</span></h6>
-</div>
-  </div>
-      </div>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2421682457127593"
-     crossorigin="anonymous"></script>
-<!-- valuelistsadd -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2421682457127593"
-     data-ad-slot="5602243058"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-      <div class="container">
-        <input required="" type="text" name="searchBar" class="input" oninput="searchItems()" id="serchBar">
-        <label class="label">Search items</label>
-      </div>
-      <div id="cont"></div>
-    <script>
-    function calculator(){
-        window.location.href = 'https://jbcalculator.vercel.app/calculator.html';
-    }
+    // The variables that will be used later on, this coment is also for the items table that contans all information about the items needed.
+    let yoursidecash = 0;
+    let oppositesidecash = 0;
+    let yoursidedemand = 0;
+    let oppositesidedemand = 0;
     const screenHeight = window.screen.height;
-    const visina = screenHeight / 6 + "px";
-    
+    const visina = screenHeight / 6 + "px"; // visina means hight, using another language here
     var items = [
-  { name: "Torpedo", size: "35m", type: "vehicle", cash: "35000000", demand: "7" },
+    { name: "Torpedo", size: "35m", type: "vehicle", cash: "35000000", demand: "7" },
   { name: "Arachnid", size: "25m", type: "vehicle", cash: "25000000", demand: "6" },
   { name: "Beignet", size: "22.5m", type: "vehicle", cash: "22500000", demand: "9" },
   { name: "Banana", size: "22.5m", type: "vehicle", cash: "22500000", demand: "5" },
@@ -142,7 +108,7 @@
   { name: "Peach", size: "20k", type: "Textures", cash: "20000", demand: "1" },
   { name: "ClassicVAR3", size: "20k", type: "Textures", cash: "20000", demand: "1" },
 
-
+  // spoilers
   {name: "Thrusters", size: "32.5m", type: "Spoilers", cash: "32500000", demand: "4" },
   {name: "2B spoiler", size: "7m", type: "Spoilers", cash: "7000000", demand: "3"},
   {name: "Eight leg spoiler", size: "5m", type: "Spoilers", cash: "5000000", demand: "2"},
@@ -290,62 +256,39 @@
   { name: "Hyper Lvl 2 Orange", size: "1.25m max", type: "Hyperchromes", cash: "1250000", demand: "1" },
   { name: "Hyper Lvl 2 Yellow", size: "1m max", type: "Hyperchromes", cash: "1000000", demand: "1" },
 ];
-function searchItems() {
-    var input, filter, cont, content, txtValue;
-    input = document.getElementById("serchBar")
-    filter = input.value.toUpperCase();
-    cont = document.getElementById("cont");
-    content = cont.getElementsByClassName("content");
-
-    for (let i = 0; i < content.length; i++) {
-        txtValue = content[i].textContent || content[i].innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            content[i].style.display = "";
-        } else {
-            content[i].style.display = "none";
-        }
+// chosing side to add to
+function chooseYourSide(index) { // chossing ur side
+      showItemList(index, 'yourSide');
     }
+function chooseOppositeSide(index) { // choosing the oposite side as this is calculator
+  showItemList(index, 'oppositeSide');
 }
 
-valuelist();
-function homepage() {
-            window.location.href = 'https://jbcalculator.vercel.app/';
-        }
-function valuelist(){
-  var cont = document.getElementById("cont");
-  console.log("3")
-  for (let i = 0; i < items.length; i++) {
-    var item = items[i];
+function showItemList(index, side) { // shows the items for the chosen side
+      var cont = document.getElementById("cont"); // gets the container div
+      cont.style.display = "none"; // hides the main container
+      let addeleList1 = document.getElementById('addeleList1'); // gets the list element
+      addeleList1.innerHTML = ''; // clears the list so it doesn't stack
+      addeleList1.style.color = "white"; // sets text color to white
 
-    // Styles for the main container
-     var content = document.createElement("div");
-    var innerContent = document.createElement("div");
-    var text = document.createElement("h5");
-    var txt = document.createElement("h6");
-    var fallout = document.createElement("p");
+      let itemList = document.createElement('div'); // makes a div for all items
+      itemList.className = 'addeleList1'; // gives it the class for styling
 
-    // Styles for the main container
-    content.style.overflow = "hidden";
-    content.style.marginBottom = "20px";
+      items.forEach(function (item, i) { // loops through every item
+        let listItem = document.createElement('div'); // makes a div for each item
+        listItem.className = "itemsot"; // class for styling
+        listItem.textContent = item.name + " JBCash: " + item.size; // shows item name and cash
+        listItem.style.marginTop = "20px"; // spacing
+        listItem.style.height = visina; // sets height
+        listItem.style.width = visina; // sets width
 
-    // Styles for the inner content container
-    innerContent.style.width = "80%";
-innerContent.style.height = "88%";
-innerContent.style.backgroundColor = "#015fca";
-innerContent.style.float = "left";
-innerContent.style.textAlign = "center";
-innerContent.style.borderRadius = "3% 3% 7% 3%";
-innerContent.style.color = "white";
-innerContent.className = "innercont";
-
-// Create a new image element
-var imgElement = document.createElement("img");
-switch (item.type) {
-  case "vehicle":
-    imgElement.src = item.name + ".png";
+var imgElement = document.createElement("img"); // image for the item
+switch (item.type) { // checks what type the item is
+  case "vehicle": // if it's a vehicle
+    imgElement.src = item.name + ".png"; // uses the name as image
     break;
-  case "Textures":
-    switch (item.name) {
+  case "Textures": // if it's a texture
+    switch (item.name) { // checks for special textures
       case "ClassicVAR1":
     imgElement.src = "Empty-slot.png";
     break;
@@ -374,48 +317,221 @@ switch (item.type) {
     imgElement.src = "Empty-slot.png";
     break;
     default:
-    imgElement.src = item.name + ".png";
+    imgElement.src = item.name + ".png"; // if not listed, use normal image
     }
     break;
   default:
-    imgElement.src = "Empty-slot.png";
+    imgElement.src = "Empty-slot.png"; // default image if type unknown
 }
-imgElement.style.width = "auto";
-imgElement.style.height = "50%";
-imgElement.style.maxWidth = "100%"; 
-imgElement.style.borderRadius = "3% 3% 7% 3%";
 
-    // Styles for the additional container
-    content.className = "content"
-    content.style.width = "20%";
-    content.style.height = visina;
-    content.style.float = "left";
-    content.style.marginTop = "20px";
-    content.style.marginRight = "30px";
-    content.style.textAlign = "center";
-    content.style.borderRadius = "3%";
-    // Styles for the text elements
-    text.textContent = item.name;
-    txt.textContent = "JBcash: " + item.size + " Demand: " +item.demand + "/10";
-    fallout.style.color = "white";
-    console.log("31");
-    cont.appendChild(content);
-    innerContent.appendChild(text);
-    innerContent.appendChild(txt);
-    content.appendChild(innerContent);
-    innerContent.appendChild(imgElement);
+imgElement.style.width = "auto"; // auto width for image
+imgElement.style.height = "50%"; // half the height
+imgElement.style.maxWidth = "100%"; // keeps it inside the div
+imgElement.style.borderRadius = "3% 3% 7% 3%"; // rounded corners
+        listItem.appendChild(imgElement); // adds image into the div
+        listItem.style.backgroundColor = " rgba(126, 219, 207, 0.322)"; // nice background
+        listItem.style.textAlign = "center"; // centers text
+        listItem.style.flexDirection = "column"; // stacks stuff vertically
+        listItem.style.alignItems = "center"; // centers items horizontally
+        listItem.style.cursor = "pointer"; // makes it clickable
+        listItem.style.display = "flex"; // flexbox layout
+        listItem.style.justifyContent = "center"; // centers vertically
+        listItem.style.marginRight = "5px"; // space right
+        listItem.style.marginLeft = "5px"; // space left
+        listItem.style.color = "white"; // white text
+        listItem.style.borderRadius = "3%"; // rounded corners
+
+        listItem.onclick = function () { // what happens when u click an item
+          replace(index, side, item); // replaces the slot with the chosen item
+          updateCash(side, parseInt(item.cash)); // updates cash based on side
+          hideItemList(); // hides the list after choosing
+        };
+
+        itemList.appendChild(listItem); // adds item to the list
+      });
+
+      addeleList1.appendChild(itemList); // puts the list inside the container
+      addeleList1.style.display = 'block'; // shows it
+    }
+
+    function hideItemList() { // hides the item list
+      let addeleList1 = document.getElementById('addeleList1');
+      addeleList1.style.display = 'none';
+      vallist.textContent = "Value List"; // resets the text
+    }
+    
+    function removeCashYourSide(cash) { // removes cash from your side
+      yoursidecash -= cash;
+      updateCash('yourSide', 0); // updates with 0 to refresh ui
+    }
+
+    function removeCashOppositeSide(cash) { // removes cash from other side
+      oppositesidecash -= cash;
+      updateCash('oppositeSide', 0);
+    }
+    function replace(index, side, selectedItem) { // replaces an empty slot with item
+      let addele = document.getElementById(side + index); // finds the slot
+      addele.style.display = "none"; // hides old slot
+
+      let replacement = document.createElement("div"); // makes new one
+      replacement.className = "addelediv";
+      replacement.id = side + index;
+      if (side === 'yourSide') { // checks which side it’s on
+        replacement.onclick = function () {
+          chooseYourSide(index);
+          removeCashYourSide(selectedItem.cash);
+        };
+      } else {
+        replacement.onclick = function () {
+          chooseOppositeSide(index);
+          removeCashOppositeSide(selectedItem.cash);
+        };
+      }
+
+      replacement.style.width = "11%";
+      replacement.style.height = "75%";
+      replacement.style.margin = "0.7%";
+      replacement.style.cursor = "pointer";
+      replacement.style.backgroundColor = "rgba(173, 167, 159, 0.322)";
+      replacement.style.display = "flex";
+      replacement.style.flexDirection = "column";
+      replacement.style.justifyContent = "center";
+      replacement.style.alignItems = "center";
+      replacement.style.borderRadius = "3%";
+
+      let replacementItem = document.createElement("h6"); // item name
+      replacementItem.textContent = selectedItem.name;
+      replacementItem.style.color = "white";
+      replacementItem.style.textAlign = "center";
+      replacementItem.style.overflow = "hidden";
+      replacementItem.style.textOverflow = "ellipsis";
+      replacementItem.style.whiteSpace = "nowrap";
+      replacementItem.className = "replace"
+
+      let replacementSize = document.createElement("h6"); // shows cash size
+      replacementSize.textContent = " JBCash: " + selectedItem.size;
+      replacementSize.style.color = "white";
+      replacementSize.style.textAlign = "center";
+      replacementSize.style.overflow = "hidden";
+      replacementSize.style.textOverflow = "ellipsis";
+      replacementSize.style.whiteSpace = "nowrap";
+      replacementSize.className = "replaces"
+
+      let replacementDemand = document.createElement("h6"); // shows demand
+      replacementDemand.textContent = "Demand: " + selectedItem.demand + "/10";
+      replacementDemand.style.color = "white";
+      replacementDemand.style.textAlign = "center";
+      replacementDemand.style.overflow = "hidden";
+      replacementDemand.style.textOverflow = "ellipsis";
+      replacementDemand.style.whiteSpace = "nowrap";
+      replacementDemand.className = "replaced"
+
+      replacement.appendChild(replacementItem); // adds the texts to div
+      replacement.appendChild(replacementSize);
+      replacement.appendChild(replacementDemand);
+
+      let holdside = document.querySelector("." + side); // finds parent div
+      holdside.replaceChild(replacement, addele); // swaps the old with new
+    }
+    function explain(){ // redirects to explain page
+  window.location.href = 'https://jbcalculator.vercel.app/explain.html';
 }
-}
+    function updateCash(side, cash) { // updates the cash display
+      if (side === 'yourSide') { // checks which side
+        yoursidecash += cash;
+        console.log('Your Side Cash: ', yoursidecash);
+        let yourcash = document.getElementById("yoursidecash");
+        yourcash.textContent = "Your side - JBCash:" + yoursidecash;
+        calculate(); // recalculates trade value
+        
+      } else {
+        oppositesidecash += cash;
+        console.log('Opposite Side Cash: ', oppositesidecash);
+        let oppocash = document.getElementById("oppocash");
+        oppocash.textContent = "Opposite side - JBCash:" + oppositesidecash;
+        calculate(); // recalculates too
+      }
+    }
+
+    function calculate() { // figures out trade result
+  var callculate = document.getElementById("callculate");
+  var callculatetext = document.getElementById("callculatetext");
+  var trdprofit = oppositesidecash - yoursidecash; // profit difference
+  
+  callculate.textContent = trdprofit;
+  if (yoursidecash < 4500000 && yoursidecash > 0) { // small trades
+if (trdprofit < 500000) {
+      var result = "W";
+    } else if (trdprofit< 2000000) {
+      var result = "big W";
+    } else if (trdprofit< 1) {
+      var result = "f";
+    } else if (trdprofit< -500000) {
+      var result = "small l";
+    } else if (trdprofit< -1000000) {
+      var result = "L";
+    } else {
+      var result = "HUGE W prob but check bouth side cash";
+    } 
+  }else if(yoursidecash >  10000000) { // bigger trades
+    if (trdprofit< 1000000) {
+      var result = "F";
+    } else if (trdprofit< 3000000) {
+      var result = "small W";
+    } else if (trdprofit< 10000000) {
+      var result = "W";
+    } else if (trdprofit< -2500000) {
+      var result = "F";
+    } else if (trdprofit< -10000000) {
+      var result = "small l to L"; 
+    } else {
+      var result = "w ig";
+    }
+  } else if (yoursidecash > 150000000) { // huge trades
+    if (trdprofit< 3000000) {
+      var result = "F or going to small w";
+    } else if (trdprofit< 10000000) {
+      var result = "W to big W";
+    } else if (trdprofit> 10000000) {
+      var result = "HUGE W";
+    } else if (trdprofit< 2) {
+      var result = "F";
+    } else if (trdprofit< 6000000) {
+      var result = "small L to L";
+    } else {
+      var result = "just L not recommended to trade unless you want to trade";
+    }
+  } else if (yoursidecash > 250000000) { // extreme trades
+    if (trdprofit< 3000000) {
+      var result = "F to W";
+    } else if (trdprofit< 10000000) {
+      var result = "W to big W";
+    } else if (trdprofit> 10040020) {
+      var result = "HUGE W";
+    }
+  } else if (yoursidecash < 2) { // if ur side empty
+    var result = "F";
+  } else {
+    var result = "w ig(but check bouth sides cash and demand)";
+  }
+  callculate.textContent = result; // shows result
+  var calculatetxt = document.getElementById("callculatetext");
+  calculatetxt.textContent =  trdprofit; // shows profit value
+    }
+var valnum = 1; // just a counter or value variable, maybe used later
+
+
+//changes modes of websie to dark or white, yes this is really what it took only one color change and the whole wewbsite goes diff color
 function whitemode() {
-  document.body.style.backgroundColor = "#00ffea";
+  document.body.style.backgroundColor = " #00ffea";
 }
 
 function darkmode() {
   document.body.style.backgroundColor = "#080024";
 }
+//changes modes of the website
 function changemode(){
   change = document.getElementById("change")
-  console.log("mode change")
   if (change.innerHTML == "Dark mode") {
     whitemode()
     change.innerHTML = "White Mode"
@@ -424,12 +540,16 @@ function changemode(){
     change.innerHTML = "Dark mode"
   }
 }
+// this section is generaly to go to other pages of the website
+var button = document.getElementById('vallist');
+function homepage() {
+            window.location.href = 'https://jbcalculator.vercel.app/';
+        }
+// Add a click event listener to the button
+function valuepage(){
+    // Redirect to another page when the button is clicked
+    window.location.href = 'https://jbcalculator.vercel.app/valuelist.html';
+}
 function dupepage(){
   window.location.href = 'https://jbcalculator.vercel.app/dupelist.html ';
 }
-function explain(){
-  window.location.href = 'https://jbcalculator.vercel.app/explain.html';
-}
-    </script>
-</body>
-</html>
